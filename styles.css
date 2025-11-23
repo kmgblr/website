@@ -1,0 +1,271 @@
+:root{
+  --orange:#ff6a00;
+  --black:#0b0b0b;
+  --white:#ffffff;
+  --muted:#f6f6f6;
+  --header-height:76px; /* approximate header height to offset hero so image top isn't covered */
+  --max-width:1100px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  padding-top: var(--header-height); /* reserve space for the fixed header so top of hero isn't hidden */
+  font-family:Montserrat,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  color:var(--black);
+  /* page background: light grey to separate page from white content panels */
+  background:var(--muted);
+}
+.container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+/* Header */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:40;background:linear-gradient(0deg, rgba(0,0,0,0.02), rgba(0,0,0,0));border-bottom:1px solid rgba(0,0,0,0.05)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;position:relative}
+.header-inner{min-height:var(--header-height);}
+/* Smooth transitions when header changes state */
+.site-header{transition:background-color .28s ease, box-shadow .28s ease, border-color .28s ease}
+
+/* Transparent header (over hero) */
+.site-header.transparent{
+  background: transparent;
+  border-bottom: none;
+  box-shadow: none;
+  color: var(--black); /* always keep header text black */
+}
+.site-header.transparent .logo .brand,
+.site-header.transparent nav.main-nav a{
+  color: var(--black); /* ensure logo and nav links remain black even when header is transparent */
+}
+.site-header.transparent .nav-toggle{ color: var(--black); }
+
+/* Solid header (after scrolling past hero) */
+.site-header.solid{
+  background: var(--white);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  color: var(--black);
+}
+.site-header.solid .logo .brand,
+.site-header.solid nav.main-nav a{
+  color: var(--black);
+}
+.site-header.solid .nav-toggle{ color: var(--black); }
+
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{height:48px;width:auto;display:block}
+.logo .brand{font-weight:700;color:var(--black);letter-spacing:0.4px}
+nav.main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:20px;align-items:center}
+nav.main-nav a{text-decoration:none;color:var(--black);font-weight:600;padding:8px 10px}
+nav.main-nav a:hover{color:var(--orange)}
+.nav-toggle{display:none;background:none;border:0;font-size:22px;cursor:pointer}
+
+/* Hero */
+.hero{
+  height:68vh;
+  min-height:420px;
+  /* use the local banner image for the hero background so the banner is visible behind the hero text */
+  background-image: none;
+  display:flex;
+  align-items:center;
+  color:var(--white);
+  position:relative;
+}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.12));z-index:1}
+.hero-bg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  z-index:0; /* sit under the overlay */
+  pointer-events:none; /* decorative only */
+  object-position: top center; /* ensure the image's top is visible rather than centered */
+}
+.hero-content{position:absolute;z-index:2;max-width:520px;padding:18px 20px;top:18px;right:18px;text-align:right;/* no panel: text sits over image */background:none;border-radius:0;color:var(--white)}
+.hero .hero-content h1{margin:0 0 8px;font-size:clamp(20px,4.2vw,36px);color:var(--white);font-weight:800;text-shadow:0 6px 18px rgba(0,0,0,0.6)}
+.hero .hero-content .hero-sub{margin:0;font-size:16px;color:rgba(255,255,255,0.95);text-shadow:0 4px 12px rgba(0,0,0,0.5);font-weight:700;line-height:1.4}
+
+/* Responsive: on small screens center the hero text and place it in flow */
+@media (max-width:800px){
+  .hero-content{position:relative;top:auto;right:auto;max-width:780px;padding:40px 20px;text-align:center;background:none;border-radius:0}
+  .hero .hero-content h1{font-size:clamp(22px,5.6vw,34px)}
+}
+
+/* Orange banner */
+.banner{
+  /* use local banner image with an orange overlay to keep the brand color and legibility */
+  /* prefer the shipped banner file (Banner is provided as banner.JPG in the project) */
+  background-image: linear-gradient(rgba(255,106,0,0.88), rgba(255,106,0,0.88)), url('banner.JPG');
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  text-align: center;
+  padding: 36px 12px;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Main content */
+main{padding:36px 0 96px} /* increased bottom padding to create space before footer */
+.section-title{margin:0 0 16px;font-size:22px;font-weight:700}
+.lead{color:#333;margin:0 0 28px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:12px}
+.card{background:var(--white);border:1px solid rgba(0,0,0,0.06);padding:18px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.04);transition:transform .18s ease, box-shadow .18s ease;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;min-height:120px}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,0.12)}
+.card h4{margin:0;font-weight:700}
+.card p{margin:0;color:#555}
+.cta-workshop{margin-top:22px;padding:18px;border-radius:8px;border:0;background:linear-gradient(180deg, var(--orange), #ff8a33);color:var(--white);box-shadow:0 8px 30px rgba(255,106,0,0.12)}
+.cta-workshop h4{margin:0 0 8px;color:var(--white)}
+.cta-workshop p{margin:0;color:rgba(255,255,255,0.95)}
+.cta-workshop a{color:var(--white);font-weight:800;text-decoration:underline}
+.cta-workshop a:hover{color:#fffde8;text-decoration:none}
+
+.locations{margin-top:28px}
+.locations-grid{
+  /* list locations vertically in the footer */
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-top:12px;
+}
+.locations-grid span{
+  /* simple row with pin and label */
+  background: none;
+  padding:6px 0;
+  text-align:left;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:var(--black);
+}
+
+/* Footer */
+.site-footer{background:var(--muted);padding:28px 0;border-top:1px solid rgba(0,0,0,0.03)}
+.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:start}
+/* On medium screens, stack into two columns */
+@media (max-width:1100px){
+  .footer-grid{grid-template-columns:repeat(2,1fr)}
+}
+/* On small screens, stack into a single column */
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr}}
+@media(max-width:800px){nav.main-nav{display:none}.nav-toggle{display:block}.hero{height:56vh}}
+.mobile-open nav.main-nav{display:block;position:absolute;right:20px;top:66px;background:var(--white);border-radius:8px;padding:12px;box-shadow:0 12px 30px rgba(0,0,0,0.12)}
+.mobile-open nav.main-nav ul{flex-direction:column;gap:8px}
+
+/* Locations list in footer (semantic list styling) */
+.locations-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.locations-list li{display:flex;align-items:center;gap:10px;color:var(--black);font-weight:600}
+.loc-icon{width:18px;height:18px;flex:0 0 18px;fill:var(--orange)}
+.loc-icon path{fill:var(--orange)}
+.loc-label{line-height:1}
+
+/* Footer contact styles (normalized) */
+.contact-list{display:flex;flex-direction:column;gap:10px;margin-top:8px;padding:0}
+.contact-item{display:flex;align-items:center;gap:10px;color:var(--black);font-weight:600;padding:6px 0}
+.contact-item .icon{width:18px;height:18px;flex:0 0 18px;fill:var(--orange);opacity:1}
+.contact-item .icon path{fill:var(--orange)}
+/* text links: use black for phone numbers and email text, bold to match locations */
+.contact-item a{color:var(--black);text-decoration:none;font-weight:600}
+.contact-item a:hover{color:var(--orange)}
+.contact-email .icon{fill:var(--orange)}
+.contact-email .icon path{fill:var(--orange)}
+/* ensure the email text is black and bold to match locations */
+.contact-email a{color:var(--black);font-weight:600}
+
+/* contact address and social handle: normal weight and plain text */
+.contact-address{margin-top:8px;color:#333;font-weight:400}
+.contact-social{margin-top:8px}
+.contact-social a{display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+/* Ensure Instagram icon is orange and the handle text is black (no underline) */
+.contact-social .icon{width:18px;height:18px;flex:0 0 18px;fill:var(--orange)}
+.contact-social .icon path{fill:var(--orange)}
+.contact-social .social-handle{color:var(--black);font-weight:600;text-decoration:none}
+.contact-social a, .contact-social a:visited, .contact-social a:active, .contact-social a:hover{ text-decoration:none; color:var(--black) }
+
+/* Footer: ensure all inline SVG icons and images are consistently small */
+.footer-grid svg, .footer-grid .icon, .footer-grid .service-icon{width:18px;height:18px;flex:0 0 18px}
+.footer-col > img{max-width:110px;height:auto;display:block}
+.footer-col, .footer-col *{max-height:none}
+.footer-col .footer-links a, .footer-col .contact-item, .footer-col .locations-list li{align-items:center}
+
+/* If a specific svg is still large because of authored width/height attributes, enforce smaller display size */
+.footer-grid svg[width], .footer-grid svg[height]{width:18px !important;height:18px !important}
+
+/* ensure service icon and contact icons keep spacing and don't stretch text */
+.footer-services .service-icon, .contact-item .icon{width:18px;height:18px}
+.contact-item{gap:8px}
+
+/* Ensure all footer SVG icons default to 18px to avoid accidental large icons */
+.footer-grid svg, .footer-grid .icon, .footer-grid .service-icon{width:18px;height:18px;flex:0 0 18px}
+.footer-grid .service-icon{width:18px;height:18px}
+
+/* Footer bottom */
+.footer-bottom{ /* center copyright line */
+  text-align:center;
+  padding-top:14px;
+  color:#333;
+  font-size:14px;
+}
+
+@media (max-width:900px){
+  .footer-services .footer-links{flex-direction:row;flex-wrap:wrap;gap:12px}
+  .footer-services .footer-links li{width:50%}
+}
+
+/* Events carousel styles */
+.events-carousel{margin-top:22px}
+.events-carousel h3{margin:8px 0 12px}
+.carousel{position:relative;overflow:hidden;border-radius:8px;border:1px solid rgba(0,0,0,0.06);background:var(--white)}
+.carousel-track{display:flex;transition:transform .45s ease;will-change:transform}
+.carousel-slide{min-width:100%;display:flex;gap:16px;align-items:center;padding:14px}
+.carousel-slide img{width:36%;max-width:340px;height:180px;object-fit:cover;border-radius:8px;flex:0 0 36%}
+.slide-info{flex:1}
+.slide-info h4{margin:0 0 6px;font-size:18px}
+.slide-info .meta{margin:0 0 8px;color:#666;font-weight:600}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.95);border:0;width:42px;height:42px;border-radius:50%;box-shadow:0 8px 24px rgba(0,0,0,0.08);cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center}
+.carousel-btn.prev{left:12px}
+.carousel-btn.next{right:12px}
+.carousel-indicators{display:flex;gap:8px;justify-content:center;padding:10px}
+.indicator{width:10px;height:10px;border-radius:50%;background:rgba(0,0,0,0.12);border:0;cursor:pointer}
+.indicator[aria-selected="true"]{background:var(--orange)}
+
+@media(max-width:800px){
+  .carousel-slide{flex-direction:column;align-items:stretch}
+  .carousel-slide img{width:100%;height:160px;flex:0 0 auto}
+  .slide-info{text-align:center}
+  .carousel-btn{display:none}
+}
+
+/* Recent events cards */
+.recent-events{margin-top:18px; margin-bottom:28px}
+.recent-events h3{margin:8px 0 12px}
+.recent-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.recent-card{display:flex;gap:12px;align-items:flex-start;padding:12px;border:1px solid rgba(0,0,0,0.06);border-radius:8px;background:var(--white);box-shadow:0 8px 24px rgba(0,0,0,0.04)}
+.recent-card img{width:36%;max-width:160px;height:96px;object-fit:cover;border-radius:6px;flex:0 0 36%}
+.card-info{flex:1}
+.card-info h4{margin:0 0 6px;font-size:16px}
+.card-info .meta{margin:0 0 8px;color:#666;font-weight:600}
+.card-info a{color:var(--orange);font-weight:700;text-decoration:none}
+.card-info a:hover{text-decoration:underline}
+
+@media(max-width:1000px){
+  .recent-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+  .recent-grid{grid-template-columns:1fr}
+  .recent-card{flex-direction:row;gap:12px}
+  .recent-card img{width:120px;height:84px}
+}
+
+/* Footer services (styled like locations list, compact spacing) */
+.footer-services .footer-links{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.footer-services .footer-links li{display:flex;align-items:center;gap:8px;padding:4px 0;color:var(--black);font-weight:600}
+.footer-services .service-icon{width:18px;height:18px;flex:0 0 18px;fill:var(--orange)}
+.footer-services .service-icon path{fill:var(--orange)}
+.footer-services a{color:var(--black);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.footer-services a:hover{color:var(--orange)}
+
+/* Back button style used across pages */
+.btn-back{display:inline-block;background:var(--orange);color:var(--white);padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(255,106,0,0.12);transition:transform .12s ease, box-shadow .12s ease}
+.btn-back:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,106,0,0.16)}
+.btn-back:focus{outline:3px solid rgba(255,106,0,0.18);outline-offset:4px}

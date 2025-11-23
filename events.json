@@ -1,0 +1,35 @@
+{
+  "recent": [
+    {
+      "title": "Open Seminar by Expert Massimo Fenu from Italy",
+      "date": "Nov 2025",
+      "location": "Bangalore",
+      "img": "max.JPG",
+      "url": "events.html"
+    },
+    {
+      "title": "Practitioner Level Camp by Expert Ilya Dunsky",
+      "date": "Nov 2024",
+      "location": "Bangalore",
+      "img": "ilya.png",
+      "url": "events.html"
+    },
+    {
+      "title": "Third party protection boot camp and grading",
+      "date": "Aug 2024",
+      "location": "Koramangala",
+      "img": "third.PNG",
+      "url": "events.html"
+    }
+  ],
+  "upcoming": [
+    {
+      "title": "Coming soon",
+      "date": "TBD",
+      "location": "Bangalore",
+      "img": "banner.JPG",
+      "url": "events.html"
+    }
+  ]
+}
+
