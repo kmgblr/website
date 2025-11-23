@@ -128,10 +128,58 @@
 
       // initialize
       // ensure slides layout is correct
-      track.style.width = (100 * slideCount) + '%';
-      slides.forEach(function(s){ s.style.width = (100 / slideCount) + '%'; });
-      update();
-      startTimer();
+      // helper to switch between carousel and stacked mobile list modes
+      var mobileBreakpoint = 700;
+      function applyDesktopMode(){
+        // horizontal carousel: track is wide and each slide is sized relative to the track
+        track.style.display = 'flex';
+        track.style.flexDirection = 'row';
+        track.style.width = (100 * slideCount) + '%';
+        slides.forEach(function(s){ s.style.width = (100 / slideCount) + '%'; s.style.display = ''; s.style.marginBottom = ''; });
+        if(prevBtn) prevBtn.style.display = '';
+        if(nextBtn) nextBtn.style.display = '';
+        if(indicators && indicators.length) indicatorsContainer && (indicatorsContainer.style.display = 'flex');
+      }
+
+      function applyMobileMode(){
+        // stacked layout for small screens — let content determine height so nothing is clipped
+        track.style.display = 'block';
+        track.style.width = '100%';
+        slides.forEach(function(s){ s.style.width = '100%'; s.style.display = 'block'; s.style.marginBottom = '12px'; s.setAttribute('aria-hidden','false'); });
+        if(prevBtn) prevBtn.style.display = 'none';
+        if(nextBtn) nextBtn.style.display = 'none';
+        if(indicators && indicators.length) indicatorsContainer && (indicatorsContainer.style.display = 'none');
+      }
+
+      // find indicators container (if present) to hide/show in mobile mode
+      var indicatorsContainer = carousel.querySelector('.carousel-indicators');
+
+      function updateLayoutMode(){
+        if(window.innerWidth <= mobileBreakpoint){
+          applyMobileMode();
+        } else {
+          applyDesktopMode();
+        }
+        // run update so aria-hidden and indicators reflect the current current index
+        update();
+      }
+
+      // initial layout
+      updateLayoutMode();
+      // watch for resize so layout switches dynamically
+      window.addEventListener('resize', function(){
+        // debounce a bit using requestAnimationFrame
+        if(window.requestAnimationFrame){
+          window.requestAnimationFrame(updateLayoutMode);
+        } else {
+          updateLayoutMode();
+        }
+      }, {passive:true});
+
+      // start auto-advance only in desktop carousel mode
+      function safeStartTimer(){ if(window.innerWidth > mobileBreakpoint) startTimer(); }
+      function safeStopTimer(){ stopTimer(); }
+      safeStartTimer();
     });
   }
 
