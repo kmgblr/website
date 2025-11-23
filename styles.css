@@ -6,6 +6,8 @@
   --header-height:76px; /* approximate header height to offset hero so image top isn't covered */
   --max-width:1100px;
 }
+/* Ensure the page background is light grey on all pages */
+html, body {height:100%;background:var(--muted) !important}
 *{box-sizing:border-box}
 body{
   margin:0;
@@ -17,17 +19,18 @@ body{
 }
 .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
 /* Header */
-.site-header{position:fixed;top:0;left:0;right:0;z-index:40;background:linear-gradient(0deg, rgba(0,0,0,0.02), rgba(0,0,0,0));border-bottom:1px solid rgba(0,0,0,0.05)}
+.site-header{position:fixed;top:0;left:0;right:0;z-index:40;/* make header opaque on all pages */background: var(--white);border-bottom:1px solid rgba(0,0,0,0.06);box-shadow:0 8px 30px rgba(0,0,0,0.08)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;position:relative}
 .header-inner{min-height:var(--header-height);}
 /* Smooth transitions when header changes state */
 .site-header{transition:background-color .28s ease, box-shadow .28s ease, border-color .28s ease}
 
 /* Transparent header (over hero) */
+/* Keep this selector but make it opaque so headers do not become see-through on any page */
 .site-header.transparent{
-  background: transparent;
-  border-bottom: none;
-  box-shadow: none;
+  background: var(--white);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
   color: var(--black); /* always keep header text black */
 }
 .site-header.transparent .logo .brand,
@@ -350,3 +353,7 @@ a:focus, button:focus{outline:3px solid rgba(255,106,0,0.18);outline-offset:3px}
 
 /* ensure links wrapping doesn't cause overflow */
 .container, .site-footer, .site-header{min-width:0}
+
+/* Read more link style: orange, bold, no underline */
+.read-more{color:var(--orange);font-weight:800;text-decoration:none}
+.read-more:hover{text-decoration:underline;color:#ff7a1a}

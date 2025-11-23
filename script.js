@@ -204,7 +204,7 @@
             + '<img src="'+ (e.img || '') + '" alt="'+ (e.title || '') +'" />'
             + '<div class="card-info"><h4>'+ (e.title || '') + '</h4>'
             + '<p class="meta">'+ (e.date || '') + ' — ' + (e.location || '') + '</p>'
-            + '<p><a href="'+ (e.url || '#') +'">Read more</a></p></div></article>';
+            + '<p><a class="read-more" href="'+ (e.url || '#') +'">Read more</a></p></div></article>';
         }).join('');
       }
 
@@ -215,7 +215,7 @@
             + '<img src="'+ (e.img || '') +'" alt="'+ (e.title || '') +'"/>'
             + '<div class="slide-info"><h4>'+ (e.title || '') +'</h4>'
             + '<p class="meta">'+ (e.date || '') +' — '+ (e.location || '') +'</p>'
-            + '<p><a href="'+ (e.url || '#') +'">Read more</a></p></div></article>';
+            + '<p><a class="read-more" href="'+ (e.url || '#') +'">Read more</a></p></div></article>';
         }).join('');
 
         var indicatorsHtml = recent.map(function(_,i){

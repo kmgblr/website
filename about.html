@@ -9,11 +9,17 @@
   <link rel="icon" href="favicon.ico">
   <!-- Added small local styles for the instructors block -->
   <style>
-    .instructors{display:flex;gap:18px;margin-top:12px;flex-wrap:wrap}
-    .instructor{text-align:center;flex:0 0 140px}
+    .instructors{display:flex;gap:24px;margin-top:12px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between}
+    .instructor{text-align:center;flex:1 1 0;min-width:180px;max-width:320px}
     .instructor svg.instructor-photo{width:120px;height:120px;display:block;margin:0 auto;border-radius:8px;background:#f2f2f2;padding:10px}
     .inst-name{margin-top:8px;font-weight:600;color:var(--black)}
     .vision{margin-top:18px;font-weight:500}
+
+    /* Responsive: stack instructors on narrow screens */
+    @media (max-width:900px){
+      .instructors{flex-direction:column;gap:18px}
+      .instructor{max-width:100%;flex:1 1 auto}
+    }
   </style>
 </head>
 <body>
@@ -56,16 +62,34 @@
       <div class="instructor">
         <svg class="instructor-photo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true"><title>Instructor</title><circle cx="32" cy="18" r="12" fill="#cfcfcf"/><path d="M8 56c0-11 9-20 24-20s24 9 24 20v4H8v-4z" fill="#d9d9d9"/></svg>
         <div class="inst-name">Krishna</div>
+        <div class="inst-roles" style="margin-top:8px;line-height:1.4;font-size:0.95rem;color:#333">
+          <p><strong>Instructor</strong></p>
+          <p>Graduate Level 3</p>
+          <p>General Instructor</p>
+          <p>Womens Instructor</p>
+        </div>
       </div>
 
       <div class="instructor">
         <svg class="instructor-photo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true"><title>Instructor</title><circle cx="32" cy="18" r="12" fill="#cfcfcf"/><path d="M8 56c0-11 9-20 24-20s24 9 24 20v4H8v-4z" fill="#d9d9d9"/></svg>
         <div class="inst-name">Ashwath</div>
+        <div class="inst-roles" style="margin-top:8px;line-height:1.4;font-size:0.95rem;color:#333">
+          <p><strong>Instructor</strong></p>
+          <p>Graduate Level 3</p>
+          <p>General Instructor</p>
+          <p>Womens Instructor</p>
+        </div>
       </div>
 
       <div class="instructor">
         <svg class="instructor-photo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true"><title>Instructor</title><circle cx="32" cy="18" r="12" fill="#cfcfcf"/><path d="M8 56c0-11 9-20 24-20s24 9 24 20v4H8v-4z" fill="#d9d9d9"/></svg>
-        <div class="inst-name">Ed</div>
+        <div class="inst-name">Ef</div>
+        <div class="inst-roles" style="margin-top:8px;line-height:1.4;font-size:0.95rem;color:#333">
+          <p><strong>Instructor</strong></p>
+          <p>Graduate Level 3</p>
+          <p>General Instructor</p>
+          <p>Womens Instructor</p>
+        </div>
       </div>
     </div>
 
