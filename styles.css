@@ -269,3 +269,84 @@ main{padding:36px 0 96px} /* increased bottom padding to create space before foo
 .btn-back{display:inline-block;background:var(--orange);color:var(--white);padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(255,106,0,0.12);transition:transform .12s ease, box-shadow .12s ease}
 .btn-back:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,106,0,0.16)}
 .btn-back:focus{outline:3px solid rgba(255,106,0,0.18);outline-offset:4px}
+
+@media (max-width:800px){
+  /* larger, tappable hamburger */
+  .nav-toggle{display:block;width:44px;height:44px;border-radius:8px;padding:6px;font-size:24px;background:rgba(255,255,255,0.95);box-shadow:0 6px 18px rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center}
+  .nav-toggle:focus{outline:3px solid rgba(255,106,0,0.18);outline-offset:3px}
+
+  /* mobile navigation: use a panel that sits under the header and is scrollable */
+  .mobile-open nav.main-nav{
+    display:block;
+    position:fixed;
+    left:12px;
+    right:12px;
+    top:calc(var(--header-height) + 8px);
+    background:var(--white);
+    border-radius:12px;
+    padding:14px 12px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.18);
+    max-height:calc(100vh - var(--header-height) - 32px);
+    overflow:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .mobile-open nav.main-nav ul{flex-direction:column;gap:12px}
+  nav.main-nav a{display:block;padding:12px 10px;font-size:18px}
+
+  /* tighten header and logo for smaller screens */
+  .logo img{height:40px}
+  .header-inner{padding:8px 0}
+
+  /* hero sizing adjustments for phones */
+  .hero{height:50vh;min-height:260px}
+  .hero-content{position:relative;top:auto;right:auto;max-width:100%;padding:20px;text-align:center}
+  .hero .hero-content h1{font-size:clamp(20px,6vw,30px)}
+
+  .banner{padding:20px 12px}
+  .container{padding:0 16px}
+
+  /* cards and CTAs become more compact but remain tappable */
+  .card{padding:16px;min-height:130px}
+  .card h4{font-size:18px}
+  .cards{gap:12px}
+  .cta-workshop{padding:14px}
+
+  /* footer spacing adjustments */
+  .footer-grid{gap:14px}
+  .footer-grid svg, .footer-grid .icon{width:20px;height:20px}
+  .footer-col > img{max-width:88px}
+  .footer-services .footer-links li{padding:8px 0}
+
+  /* carousel tweaks */
+  .carousel-slide img{height:auto}
+  .carousel-btn{display:none}
+}
+
+/* extra small phones */
+@media (max-width:420px){
+  :root{--header-height:64px}
+  .nav-toggle{width:48px;height:48px;font-size:26px}
+  nav.main-nav a{font-size:16px;padding:12px 8px}
+  .hero .hero-content h1{font-size:clamp(18px,6.5vw,28px)}
+  .banner{padding:16px}
+  .cta-workshop{padding:12px}
+  .footer-bottom{font-size:13px}
+}
+
+/* ensure all media scale down on small screens */
+img, video, iframe{max-width:100%;height:auto;display:block}
+
+/* improved focus visibility for keyboard users */
+a:focus, button:focus{outline:3px solid rgba(255,106,0,0.18);outline-offset:3px}
+
+/* increase tap targets in footer */
+.footer-services .footer-links a, .locations-list li, .contact-item a{padding:8px 0;display:flex;align-items:center}
+
+/* slightly reduce hero overlay darkness on smaller devices for legibility */
+@media (max-width:600px){
+  .hero::before{background:linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.08))}
+}
+
+/* ensure links wrapping doesn't cause overflow */
+.container, .site-footer, .site-header{min-width:0}
