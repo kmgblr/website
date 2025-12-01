@@ -421,4 +421,38 @@ a:focus, button:focus{outline:3px solid rgba(255,106,0,0.18);outline-offset:3px}
   padding-bottom: 10px !important;
 }
 
+/* Trial Form Page */
+.trial-form {
+  max-width: 480px;
+  background: var(--white);
+  padding: 28px;
+  border-radius: 12px;
+  margin-top: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.trial-form label {
+  font-weight: 700;
+  color: var(--black);
+}
+
+.trial-form input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.trial-form input:focus {
+  outline: 2px solid var(--orange);
+  border-color: var(--orange);
+}
+
+#thankYouMessage {
+  font-size: 18px;
+}
+
 
