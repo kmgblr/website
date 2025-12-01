@@ -393,11 +393,14 @@ a:focus, button:focus{outline:3px solid rgba(255,106,0,0.18);outline-offset:3px}
 /* Bottom CTA Section */
 .trial-cta {
   text-align: center;
-  padding: 70px 20px;
+  padding: 40px 20px;        /* reduced height */
   background: var(--white);
   border-radius: 12px;
-  margin-top: 60px;
-  box-shadow: 0 12px 36px rgba(0,0,0,0.08);
+  margin: 40px auto 20px;    /* adjusts space above & below */
+  max-width: 900px;          /* keeps it visually neat */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
 }
 
 .trial-cta h2 {
@@ -406,6 +409,7 @@ a:focus, button:focus{outline:3px solid rgba(255,106,0,0.18);outline-offset:3px}
   color: var(--black);
   margin-bottom: 20px;
 }
+
 
 
 
