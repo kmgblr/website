@@ -379,10 +379,16 @@ a:focus, button:focus{outline:3px solid rgba(255,106,0,0.18);outline-offset:3px}
   box-shadow: 0 14px 34px rgba(255,106,0,0.32);
 }
 
+
 /* Improve hero CTA visibility */
 .hero .btn-trial {
-  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
-  border: 2px solid rgba(255,255,255,0.5);
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  border: 2px solid rgba(255,255,255,0.6);
+  background: linear-gradient(180deg, #ff7a00, #ff5500);
+  backdrop-filter: brightness(0.8);
+  -webkit-text-stroke: 0.6px rgba(0,0,0,0.4);
+}
+
 }
 /* Bottom CTA Section */
 .trial-cta {
@@ -400,5 +406,6 @@ a:focus, button:focus{outline:3px solid rgba(255,106,0,0.18);outline-offset:3px}
   color: var(--black);
   margin-bottom: 20px;
 }
+
 
 
