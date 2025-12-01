@@ -17,27 +17,39 @@
     </div>
   </header>
 
-  <main class="container" style="padding-top:40px;">
-    <h1>Book Your Free Trial Class</h1>
+ <main class="container" style="padding-top:40px;">
 
+  <div class="trial-wrapper">
+
+    <h1>Book Your Free Trial Class</h1>
     <p>Please fill in your details. We will contact you shortly.</p>
 
-   <form id="trialForm" method="POST" action="https://script.google.com/macros/s/AKfycbwahH7OLq4CBj_Wo-YwBDv59rJwW88_e4FoA8b92qmS07oRY0XdEruhShI8BuRa4Ub72g/exec">
-  
-  <label>First Name</label>
-  <input type="text" id="firstName" name="firstName" required>
+    <form id="trialForm" method="POST"
+      action="https://script.google.com/macros/s/AKfycbwahH7OLq4CBj_Wo-YwBDv59rJwW88_e4FoA8b92qmS07oRY0XdEruhShI8BuRa4Ub72g/exec">
 
-  <label>Last Name</label>
-  <input type="text" id="lastName" name="lastName" required>
+      <label>First Name</label>
+      <input type="text" id="firstName" name="firstName" required>
 
-  <label>Phone Number</label>
-  <input type="tel" id="phone" name="phone" required>
+      <label>Last Name</label>
+      <input type="text" id="lastName" name="lastName" required>
 
-  <input type="hidden" name="source" value="Website Free Trial">
+      <label>Phone Number</label>
+      <input type="tel" id="phone" name="phone" required>
 
-  <button type="submit" class="submit-btn">Submit</button>
+      <input type="hidden" name="source" value="Website Free Trial">
 
-</form>
+      <button type="submit" class="submit-btn">Submit</button>
+
+    </form>
+
+    <p id="thankYouMsg" style="display:none;">
+      Thank you for contacting us! Redirecting you to WhatsApp…
+    </p>
+
+  </div>
+
+</main>
+
 
 
 <p id="thankYouMsg" style="display:none; font-weight:700; margin-top:20px; color:green;">
