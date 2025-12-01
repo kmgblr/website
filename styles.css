@@ -404,11 +404,14 @@ a:focus, button:focus{outline:3px solid rgba(255,106,0,0.18);outline-offset:3px}
 }
 
 .trial-cta h2 {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 800;
   color: var(--black);
-  margin-bottom: 20px;
+  margin-bottom: 14px;   /* tighter spacing */
 }
+
+}
+
 
 
 
