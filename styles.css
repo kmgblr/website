@@ -411,4 +411,14 @@ a:focus, button:focus{outline:3px solid rgba(255,106,0,0.18);outline-offset:3px}
   padding-top: 60px;
   padding-bottom: 20px;
 }
+.recent-events {
+  margin-bottom: 10px !important;
+}
+.recent-grid {
+  margin-bottom: 0 !important;
+}
+.events-carousel {
+  padding-bottom: 10px !important;
+}
+
 
