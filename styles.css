@@ -406,3 +406,8 @@ a:focus, button:focus{outline:3px solid rgba(255,106,0,0.18);outline-offset:3px}
   color: var(--black);
   margin-bottom: 14px;
 }
+
+.google-reviews-section {
+  padding-top: 60px;
+  padding-bottom: 20px;
+}
