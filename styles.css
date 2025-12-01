@@ -455,4 +455,99 @@ a:focus, button:focus{outline:3px solid rgba(255,106,0,0.18);outline-offset:3px}
   font-size: 18px;
 }
 
+/* -------------------------
+   TRIAL FORM PAGE STYLING
+--------------------------*/
+
+.trial-wrapper {
+  max-width: 680px;
+  margin: 40px auto;
+  padding: 40px 30px;
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+}
+
+.trial-wrapper h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.trial-wrapper p {
+  text-align: center;
+  color: #444;
+  margin-bottom: 30px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+#trialForm {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+#trialForm label {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+#trialForm input[type="text"],
+#trialForm input[type="tel"] {
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #dcdcdc;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+#trialForm input:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(255,106,0,0.25);
+}
+
+.submit-btn {
+  background: linear-gradient(180deg, var(--orange), #ff7a1a);
+  padding: 16px;
+  border-radius: 10px;
+  color: var(--white);
+  font-weight: 800;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 10px 26px rgba(255,106,0,0.25);
+  transition: all 0.25s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  background: #ff8b33;
+  box-shadow: 0 14px 32px rgba(255,106,0,0.32);
+}
+
+/* Thank-you message */
+#thankYouMsg {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 22px !important;
+  color: green;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .trial-wrapper {
+    padding: 28px 20px;
+  }
+
+  .trial-wrapper h1 {
+    font-size: 26px;
+  }
+}
+
+
 
