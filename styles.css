@@ -384,5 +384,21 @@ a:focus, button:focus{outline:3px solid rgba(255,106,0,0.18);outline-offset:3px}
   text-shadow: 0 2px 6px rgba(0,0,0,0.4);
   border: 2px solid rgba(255,255,255,0.5);
 }
+/* Bottom CTA Section */
+.trial-cta {
+  text-align: center;
+  padding: 70px 20px;
+  background: var(--white);
+  border-radius: 12px;
+  margin-top: 60px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.08);
+}
+
+.trial-cta h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--black);
+  margin-bottom: 20px;
+}
 
 
