@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book Your Free Trial Class — KMG Bangalore</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="logo.png" alt="KMG logo">
+        <div class="brand">Krav Maga Global - Bangalore</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top:40px;">
+    <h1>Book Your Free Trial Class</h1>
+
+    <p>Please fill in your details. We will contact you shortly.</p>
+
+    <form id="trialForm">
+      <label>First Name</label>
+      <input type="text" id="firstName" required>
+
+      <label>Last Name</label>
+      <input type="text" id="lastName" required>
+
+      <label>Phone Number</label>
+      <input type="tel" id="phone" required>
+
+      <button type="submit" class="btn-trial">Submit</button>
+    </form>
+
+    <p id="thanksMessage" style="display:none; margin-top:20px; font-weight:700;">
+      Thank you for contacting us! We will get back to you shortly.
+    </p>
+  </main>
+
+  <script>
+    // WhatsApp Redirect Logic
+    document.getElementById("trialForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const first = document.getElementById("firstName").value;
+      const last = document.getElementById("lastName").value;
+      const phone = document.getElementById("phone").value;
+
+      const message = `Hello, my name is ${first} ${last}. I would like to book a free trial class. My phone number is ${phone}.`;
+      const encoded = encodeURIComponent(message);
+
+      const whatsappURL = `https://wa.me/918123456855?text=${encoded}`;
+
+      window.location.href = whatsappURL;
+    });
+  </script>
+
+</body>
+</html>
