@@ -58,6 +58,40 @@
       window.location.href = whatsappURL;
     });
   </script>
+<script>
+document.getElementById("trialForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const firstName = document.getElementById("firstName").value;
+  const lastName  = document.getElementById("lastName").value;
+  const phone     = document.getElementById("phone").value;
+
+  // Send data to Google Sheets
+  fetch("https://script.google.com/macros/s/AKfycbwahH7OLq4CBj_Wo-YwBDv59rJwW88_e4FoA8b92qmS07oRY0XdEruhShI8BuRa4Ub72g/exec", {
+    method: "POST",
+    body: JSON.stringify({
+      firstName: firstName,
+      lastName: lastName,
+      phone: phone
+    })
+  })
+  .then(res => res.json())
+  .then(() => {
+    // Show thank-you message
+    document.getElementById("thankYouMsg").style.display = "block";
+
+    // WhatsApp redirect after a short delay
+    setTimeout(() => {
+      const msg = `Hi, my name is ${firstName} ${lastName}. I would like to book a trial class. My phone number is ${phone}.`;
+      const phoneNumber = "918123456855"; // your WhatsApp business number
+      const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(msg)}`;
+
+      window.location.href = url;
+    }, 1200);
+  })
+  .catch(err => alert("Something went wrong. Please try again."));
+});
+</script>
 
 </body>
 </html>
