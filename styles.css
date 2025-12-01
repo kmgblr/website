@@ -357,3 +357,24 @@ a:focus, button:focus{outline:3px solid rgba(255,106,0,0.18);outline-offset:3px}
 /* Read more link style: orange, bold, no underline */
 .read-more{color:var(--orange);font-weight:800;text-decoration:none}
 .read-more:hover{text-decoration:underline;color:#ff7a1a}
+
+/* CTA Button (Hero + Bottom CTA) */
+.btn-trial {
+  display: inline-block;
+  padding: 14px 28px;
+  background: linear-gradient(180deg, var(--orange), #ff7a1a);
+  color: var(--white);
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 18px;
+  text-decoration: none;
+  margin-top: 22px;
+  box-shadow: 0 10px 28px rgba(255,106,0,0.22);
+  transition: all 0.25s ease;
+}
+
+.btn-trial:hover {
+  background: #ff8b33;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgba(255,106,0,0.32);
+}
