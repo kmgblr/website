@@ -395,7 +395,7 @@ a:focus, button:focus{outline:3px solid rgba(255,106,0,0.18);outline-offset:3px}
   padding: 40px 20px;
   background: var(--white);
   border-radius: 12px;
-  margin: 40px auto 20px;
+  margin: 40px auto 80px; /* increased bottom space*/
   max-width: 900px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.06);
 }
@@ -411,3 +411,4 @@ a:focus, button:focus{outline:3px solid rgba(255,106,0,0.18);outline-offset:3px}
   padding-top: 60px;
   padding-bottom: 20px;
 }
+
