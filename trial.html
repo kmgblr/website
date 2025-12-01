@@ -22,18 +22,23 @@
 
     <p>Please fill in your details. We will contact you shortly.</p>
 
-   <form id="trialForm">
+   <form id="trialForm" method="POST" action="https://script.google.com/macros/s/AKfycbwahH7OLq4CBj_Wo-YwBDv59rJwW88_e4FoA8b92qmS07oRY0XdEruhShI8BuRa4Ub72g/exec">
+  
   <label>First Name</label>
-  <input type="text" id="firstName" required>
+  <input type="text" id="firstName" name="firstName" required>
 
   <label>Last Name</label>
-  <input type="text" id="lastName" required>
+  <input type="text" id="lastName" name="lastName" required>
 
   <label>Phone Number</label>
-  <input type="tel" id="phone" required>
+  <input type="tel" id="phone" name="phone" required>
+
+  <input type="hidden" name="source" value="Website Free Trial">
 
   <button type="submit" class="submit-btn">Submit</button>
+
 </form>
+
 
 <p id="thankYouMsg" style="display:none; font-weight:700; margin-top:20px; color:green;">
   Thank you for contacting us, redirecting you to WhatsApp…
